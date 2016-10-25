@@ -1,0 +1,78 @@
+/*  Name: main.css
+*   Description: Principal stylesheet file
+*   Author: Elisabet González | eli.jvn@gmail.com
+*   Creation date: October 25th, 2016
+*   Version 2.0.0
+*   History:
+*   v1.0.0  10/06/2016  All styles defined
+*   v1.1.0  10/20/2016  Label added, button and textarea margin modified.
+*   v2.0.0  10/25/2016  Jade inclusion to project
+*/
+
+/* Principal font */
+body {
+  font-family: 'Dosis', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 1em;
+  word-break: break-word;
+}
+
+button {
+  background-color: #ff5733;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  font-size: 14px;
+  font-weight: 300px;
+  margin: 0.5em 0 0.4em 0;
+  padding: 0.5em 0 0.5em 0;
+  width: 90px;
+}
+
+button:hover {
+  background-color: #a22005;
+}
+
+div#chat textarea {
+  height: 10em;
+  width: calc(40% - 10px);
+}
+
+/* Principal header */
+h1 {
+  border-bottom: 3px solid #d35400;
+  font-size: 3em;
+  font-weight: 800;
+  margin: 0 0 0.4em 0;
+  padding: 0 0 0.2em 0;
+  text-align: center;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+label {
+  color: #FFC300;
+  font-size: 1.3em;
+  font-weight: 300;
+  margin: 10px 0 10px 0;
+}
+
+p {
+  color: black;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+textarea {
+  color: #7b7d7d;
+  font-size: 16px;
+  font-weight: 300;
+  height: 1.3em;
+  margin: 0.5em 0 0.4em 0;
+  padding: 5px;
+  width: 15em;
+}

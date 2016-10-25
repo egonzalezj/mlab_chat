@@ -1,0 +1,24 @@
+// Name: index.jade
+// Description: Home page
+// Author: Elisabet González | eli.jvn@gmail.com
+// Creation date: October 25th, 2016
+// Version: 1.0.0
+// History:
+// v1.0.0 10/25/2016 File created
+
+extends ./layout.jade
+block content
+  div(id='container')
+    label ID:
+    br
+    textarea(id='id')
+    br
+    label Username:
+    br
+    textarea(id='username', placeholder='Username')
+    br
+    button(id='connect') Connect
+    div(id='chat')
+      textarea(id='message', placeholder='Write a message...')
+      br
+      button(id='send') Send
