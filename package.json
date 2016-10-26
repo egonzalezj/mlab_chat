@@ -12,6 +12,7 @@
     "express": "^4.14.0",
     "getusermedia": "^2.0.0",
     "jade": "^1.11.0",
-    "simple-peer": "^6.0.7"
+    "simple-peer": "^6.0.7",
+    "socket.io": "^1.5.1"
   }
 }

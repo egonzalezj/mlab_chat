@@ -12,9 +12,11 @@ var express = require('express');
 var gum = require('./modules/gum');
 //Start express module
 var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io').listen(http);
 //Server info
-var hostname = 'webrtctest2.zapto.org';
-var port = 80;
+var hostname = 'webrtctest.zapto.org';
+var port = 8080;
 
 app.use('/', express.static('public'));
 
@@ -26,7 +28,7 @@ app.get('/', function (req, res) {
 });
 
 //Set hostname and port
-app.listen(port, hostname, function() {
+http.listen(port, hostname, function() {
   //Sends a message when connection is done.
-  console.log('Connection stablished to ' + hostname + ':' + port);
+  console.log('Connected to ' + hostname + ':' + port);
 });

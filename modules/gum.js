@@ -1,5 +1,5 @@
 /*  Name: gum.js
-*   Description: Chat application with NodeJS and WebRTC
+*   Description: getUserMedia definitions
 *   Author: Elisabet González | eli.jvn@gmail.com
 *   Creation date: October 25th, 2016
 *   Version: 1.0.0
@@ -35,14 +35,23 @@ function hasGetUserMedia() {
 }*/
 
 var getUserMedia = require('getusermedia');
-var audio = document.querySelector('audio');
+var express = require('express');
+var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io').listen(http);
+//var audio = document.querySelector('audio'); //fix
 
-getUserMedia({video: false, audio: true}, function(stream) {
-  audio.src = window.URL.createObjectURL(stream);
-  console.log('Acepted');
-},
-function(err) {
-  console.log('Rejected', err);
+getUserMedia({video: false, audio: true}, function(stream, err) {
+  if(err) {
+    console.log('Rejected', err);
+  } else {
+      io.on('connetion', function(socket) {
+        console.log('Socket IO connection accepted');
+        socket.emit('stream', stream);
+      })
+      //audio.src = window.URL.createObjectURL(stream); //fix
+      console.log('Accepted');
+  }
 });
 
 exports.module = getUserMedia;
