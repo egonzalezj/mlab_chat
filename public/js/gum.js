@@ -11,21 +11,20 @@
 //var getUserMedia = require('getusermedia');
 
 if(hasGetUserMedia()) {
+  navigator.getUserMedia =  navigator.getUserMedia ||
+                            navigator.webkitGetUserMedia ||
+                            navigator.mozGetUserMedia ||
+                            navigator.mediaDevices.getUserMedia ||
+                            navigator.msGetUserMedia;
 } else {
   console.log('getUserMedia() is not supported on your browser');
 };
 
-navigator.getUserMedia =  navigator.getUserMedia ||
-                          navigator.webkitGetUserMedia ||
-                          navigator.mozGetUserMedia ||
-                          navigator.mediaDevices.getUserMedia ||
-                          navigator.msGetUserMedia;
-
-var video = document.querySelector('video');
+var audio = document.querySelector('audio');
 
 if(navigator.getUserMedia) {
-  navigator.getUserMedia({video:true, audio:false}, function(stream) {
-    video.src = window.URL.createObjectURL(stream);
+  navigator.getUserMedia({video: false, audio: true}, function(stream) {
+    audio.src = window.URL.createObjectURL(stream);
     console.log('Acepted');
   },
   function(err) {
