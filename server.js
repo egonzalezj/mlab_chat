@@ -9,6 +9,7 @@
 
 //Required dependencies
 var express = require('express');
+var gum = require('./modules/gum');
 //Start express module
 var app = express();
 //Server info

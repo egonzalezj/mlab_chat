@@ -7,10 +7,7 @@
 *   v1.0.0  10/25/2016  App creation
 */
 
-//Required dependencies
-//var getUserMedia = require('getusermedia');
-
-if(hasGetUserMedia()) {
+/*if(hasGetUserMedia()) {
   navigator.getUserMedia =  navigator.getUserMedia ||
                             navigator.webkitGetUserMedia ||
                             navigator.mozGetUserMedia ||
@@ -35,4 +32,17 @@ if(navigator.getUserMedia) {
 function hasGetUserMedia() {
   return !!(navigator.getUserMedia||navigator.webkitGetUserMedia||
             navigator.mozGetUserMedia|| navigator.msGetUserMedia);
-}
+}*/
+
+var getUserMedia = require('getusermedia');
+var audio = document.querySelector('audio');
+
+getUserMedia({video: false, audio: true}, function(stream) {
+  audio.src = window.URL.createObjectURL(stream);
+  console.log('Acepted');
+},
+function(err) {
+  console.log('Rejected', err);
+});
+
+exports.module = getUserMedia;
