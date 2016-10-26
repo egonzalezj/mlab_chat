@@ -7,7 +7,9 @@
 *   v2.0.0  10/25/2016  App creation
 */
 
+//Required dependencies
 var express = require('express');
+//Start express module
 var app = express();
 //Server info
 var hostname = 'webrtctest2.zapto.org';

@@ -8,17 +8,23 @@
 
 extends ./layout.jade
 block content
-  div(id='container')
-    label ID:
-    br
-    textarea(id='id')
-    br
-    label Username:
-    br
-    textarea(id='username', placeholder='Username')
-    br
-    button(id='connect') Connect
-    div(id='chat')
-      textarea(id='message', placeholder='Write a message...')
+  form
+    div(id='container')
+      label(for='id') ID:
       br
-      button(id='send') Send
+      input(type='text', name='id', id='id', placeholder='Your ID', readonly)
+      br
+      label(for='username') Username:
+      br
+      input(type='text', name='username', id='username', placeholder='Username')
+      br
+      input(type='button', id='connect', value='Connect')
+      br
+      div(id='chat')
+        label(for='message') Message:
+        br
+        input(type='text', name='message', id='message', placeholder='Write a message...')
+        br
+        input(type='button', id='send', value='Send')
+      video(id='video', autoplay='true')
+      script(type='text/javascript', src='./js/gum.js')

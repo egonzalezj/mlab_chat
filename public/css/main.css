@@ -19,23 +19,7 @@ body {
   word-break: break-word;
 }
 
-button {
-  background-color: #ff5733;
-  border: none;
-  border-radius: 2px;
-  color: white;
-  font-size: 14px;
-  font-weight: 300px;
-  margin: 0.5em 0 0.4em 0;
-  padding: 0.5em 0 0.5em 0;
-  width: 90px;
-}
-
-button:hover {
-  background-color: #a22005;
-}
-
-div#chat textarea {
+div#chat input[type='text'] {
   height: 10em;
   width: calc(40% - 10px);
 }
@@ -54,6 +38,34 @@ html {
   overflow-y: scroll;
 }
 
+input[type=text] {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #7b7d7d;
+  font-size: 16px;
+  font-weight: 300;
+  height: 1.3em;
+  margin: 0.5em 0 0.4em 0;
+  padding: 5px;
+  width: 15em;
+}
+
+input[type=button] {
+  background-color: #ff5733;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  font-size: 14px;
+  font-weight: 300px;
+  margin: 0.5em 0 0.4em 0;
+  padding: 0.5em 0 0.5em 0;
+  width: 90px;
+}
+
+input[type=button]:hover {
+  background-color: #a22005;
+}
+
 label {
   color: #FFC300;
   font-size: 1.3em;
@@ -65,14 +77,4 @@ p {
   color: black;
   font-size: 18px;
   font-weight: 300;
-}
-
-textarea {
-  color: #7b7d7d;
-  font-size: 16px;
-  font-weight: 300;
-  height: 1.3em;
-  margin: 0.5em 0 0.4em 0;
-  padding: 5px;
-  width: 15em;
 }

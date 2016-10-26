@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.14.0",
-    "jade": "^1.11.0"
+    "getusermedia": "^2.0.0",
+    "jade": "^1.11.0",
+    "simple-peer": "^6.0.7"
   }
 }
