@@ -8,15 +8,19 @@
 */
 
 //Required dependencies
+var getUserMedia = require('getusermedia');
+var Peer = require('simple-peer');
+var wrtc = require('wrtc');
 var express = require('express');
-var gum = require('./modules/gum');
-//Start express module
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io').listen(http);
+//var gum = require('./modules/gum');
 //Server info
-var hostname = 'webrtctest.zapto.org';
-var port = 8080;
+var hostname = 'webrtctest2.zapto.org';
+var port = 80;
+
+var id;
 
 app.use('/', express.static('public'));
 
@@ -31,4 +35,27 @@ app.get('/', function (req, res) {
 http.listen(port, hostname, function() {
   //Sends a message when connection is done.
   console.log('Connected to ' + hostname + ':' + port);
+});
+
+getUserMedia({video: false, audio: true}, function(stream, err) {
+  if(err) {
+    console.log('Rejected', err);
+  } else {
+      console.log('Accepted');
+      var peer = new Peer({
+        initiator: location.hash === '#1',
+        trickle: false,
+        stream: stream,
+        wrtc: wrtc 
+      });
+
+      peer.on('signal', function (data) {
+         id = JSON.stringify(data);
+      });
+  }
+});
+
+io.on('connection', function(socket) {
+  console.log('Socket IO connection accepted');
+  socket.emit('id', id);
 });

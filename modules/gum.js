@@ -39,17 +39,12 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io').listen(http);
-//var audio = document.querySelector('audio'); //fix
 
 getUserMedia({video: false, audio: true}, function(stream, err) {
   if(err) {
     console.log('Rejected', err);
   } else {
-      io.on('connetion', function(socket) {
-        console.log('Socket IO connection accepted');
-        socket.emit('stream', stream);
-      })
-      //audio.src = window.URL.createObjectURL(stream); //fix
+      //socket.emit('stream', stream);
       console.log('Accepted');
   }
 });
